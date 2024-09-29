@@ -10,3 +10,5 @@ start project
 4) create .env files
 5) because we are using commonjs module and not ES6,configure package.json by adding
  "type": "module",
+ 6) instal nodemon: npm install nodemon --save-dev
+

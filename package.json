@@ -2,9 +2,10 @@
   "name": "openai-grammar-checker",
   "version": "1.0.0",
   "description": "The **OpenAI Grammar Checker** is an simple AI-powered tool designed to instantly correct grammatical errors, spelling mistakes, and stylistic inconsistencies in text, it helps users enhance the clarity, tone, and readability of their writing, making it ideal for professionals, students, and anyone looking to improve their written communication.",
-  "main": "index.js",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,8 @@
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
