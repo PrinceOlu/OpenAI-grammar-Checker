@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Render index.ejs
 app.get("/", (req, res) => {
-    res.render("index", { originalText: '', correctedText: '' }); 
+    res.render("index", { originalText: '', correctedText: '', error: '' }); 
 });
 
 // MAIN correction route
@@ -56,12 +56,17 @@ app.post("/correct", async (req, res) => {
         }
 
         const data = await response.json();
-        const correctedText = data.choices[0].message.content;
+        
+        // Ensure data.choices exists
+        const correctedText = data.choices && data.choices.length > 0 
+            ? data.choices[0].message.content 
+            : "No correction found.";
 
         // Render index with corrected text
         res.render("index", {
             originalText: text, 
             correctedText: correctedText, 
+            error: '', // Clear any previous error
         });
         
     } catch (error) {
